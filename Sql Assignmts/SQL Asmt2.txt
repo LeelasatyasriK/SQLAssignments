@@ -1,0 +1,43 @@
+1.Select * from Customer Where Country='Germany'
+2.Select FirstName+LastName from Customer 
+3.Alter table Customer add FAX_number varchar(20)
+  Select * from Customer Where FAX_number is NOT NULL
+4.Select * from Customer where FirstName LIKE '_U%' 
+5.Select * from OrderItem where UnitPrice>10 AND UnitPrice<20
+
+Create table Employee
+(
+ID int NOT NULL primary Key,
+FirstName nvarchar(40) NOT NULL,
+LastName nvarchar(40) NOT NULL,
+ManagerId int Foreign key references Manager(ID),
+Rating int NOT NULL,
+JoiningDate datetime NOT NULL
+)
+
+Create table Manager
+(
+ID int NOT NULL primary key,
+ManagerName nvarchar(40) NOT NULL,
+DepartmentId int Foreign key references Department(ID)
+)
+
+Create table Department
+(
+ID int NOT NULL primary key,
+DepName nvarchar(40) NOT NULL
+)
+
+6.Alter table Order1 add ShippingDate datetime
+  Select * from Order1 order by ShippingDate
+7.Alter table Order1 add ShippingName varchar(50)
+Select * from Order1 Where ShippingName='La corned'abondance' and ShippingDate between '1994-10-11' and '2004-10-11'
+8.Alter table Product add Companyname varchar(50)
+ Select * from Product Where Companyname='ExoticLiquids'
+9.Select Avg(Quantity) From OrderItem
+10.Select o.ShippingName,p.Companyname from
+  Order1 o join OrderItem i on o.ID=i.OrderId 
+  join Product p on i.ProductId=p.ID 
+  Where p.IsDiscontinued=0
+11.Select e.FirstName+LastName, m.ManagerName
+ from Employee e inner join Manager m on e.ManagerId=m.ID

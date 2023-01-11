@@ -1,0 +1,19 @@
+1.Select o.ID,OrderDate,OrderNumber,o.CustomerId,TotalAmount 
+from Order1 o inner join Customer c on o.CustomerId=c.ID
+Where c.Phone='030-0074321'
+
+2.Alter table Product add Category varchar(50)
+Select * from Product Where Category='Seafood'
+
+3.Select o.ID,OrderDate,OrderNUmber,o.CustomerId,TotalAmount
+from Order1 o inner join Customer c on o.CustomerId=c.ID
+Where c.City not in ('London')
+
+4.Select o.ID,OrderDate,OrderNUmber,CuStomerId,TotalAmount
+from Order1 o join OrderItem i on o.ID=i.OrderId
+join Product p on i.ProductId=p.ID
+Where p.ProductName='Iphone'
+
+5.Select e.FirstName+LastName as EmployeeName,Rating,d.DepName
+from Employee e join Manager m on e.ManagerId=m.ID
+join department d on d.ID=m.DepartmentId
